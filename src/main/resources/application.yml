@@ -1,0 +1,7 @@
+server:
+  port: 10086
+
+config:
+  clientId: '1906958998834196480'
+  clientSecret: 'LeegyVDk7YTJk8ru4rcrAQEHJ83HS6XYbvXXegumnVpTza7UCvfT0TgADjGBl8Dz'
+  apiGateway: https://xxxx.io
