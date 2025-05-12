@@ -46,7 +46,13 @@ public class ObjectController {
 
         httpPut.setHeader("Content-Type", contentType);
         Map<String, String> headers = putObjectResp.getHeaders();
-        headers.forEach(httpPut::setHeader);
+        // 过滤掉host
+        headers.forEach((k, v) -> {
+            if (!k.equalsIgnoreCase("host")) {
+                httpPut.setHeader(k, v);
+            }
+        });
+
         try (CloseableHttpResponse response = httpClient.execute(httpPut)) {
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode == HttpStatus.SC_OK) {
